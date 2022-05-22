@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import Festival from "./Components/Festival/festival";
+import Science from "./Components/Stories pages/science";
+
+import Presentation from "./Components/Event pages/Presentation";
+
+import SHardware from "./Components/Spec pages/spec-hardware";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/Festival" element={<Festival />} />
+      <Route path="/Science" element={<Science />} />
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+      <Route path="/Presentation" element={<Presentation />} />
+
+      <Route path="/Spec-Hardware" element={<SHardware />} />
+    </Routes>
+  </BrowserRouter>
+);
